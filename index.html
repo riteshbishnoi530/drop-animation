@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.parent {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: skyblue;
+}
+
+.container {
+  height: 200px;
+  width: 200px;
+  margin: 300px auto;
+  position: relative;
+  filter: url(#goo);
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Anton', sans-serif;
+  font-size: 200px;
+  color: white;
+  z-index: 999;
+}
+
+.drop {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(100%, -800%) scaleX(0.5);
+  animation: move 6s cubic-bezier(1, .04, .74, .2) infinite;
+}
+.drop-2 {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: -48%;
+  transform: translate(120%, -800%) scaleX(0.5);
+  animation: move 6s cubic-bezier(1, .04, .74, .2) infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(50%, -800%) scaleX(0.2);
+    height: 60px;
+  }
+  30% {
+    transform: translate(120%, -200%);
+    height: 30px;
+  }
+  70% {
+    transform: translate(120%, 100%);
+    height: 30px;
+  }
+  100% {
+    transform: translate(120%, 800%) scaleX(0.2);
+    height: 60px;
+  }
+}
+
+@media (max-width:768px) {
+    .text{
+        font-size: 180px;
+    }
+    .drop-2{
+        left: -40%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="container">
+            <p class="text">DROP</p>
+            <div class="drop"></div>
+            <div class="drop-2"></div>
+        </div>
+    </div>
+</body>
+
+</html>
